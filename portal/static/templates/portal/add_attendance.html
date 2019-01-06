@@ -1,0 +1,256 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Add Attendance | Fine-Leap Systems</title>#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="jumbotron container text-center">#}
+{##}
+{#    <form method="post" action="{% url "add_attendance" %}">#}
+{##}
+{#        {% csrf_token %}#}
+{##}
+{#        <label >Date</label>#}
+{#        <input name="date" type="date">#}
+{#    <br><br>#}
+{##}
+{#        {% for employee in employees %}#}
+{#            <label>{{ employee.Name }}</label>#}
+{#            <select name="emp--{{ employee.id }}">#}
+{#                <option value=1>Full Day</option>#}
+{#                <option value=0.5>Half Day</option>#}
+{#                <option value=0>Absent</option>#}
+{#            </select>#}
+{#            <br>#}
+{#        {% endfor %}#}
+{#    <br><br>#}
+{#        <button class="btn btn-primary" type="submit">Submit</button>#}
+{#    </form>#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
+{##}
+{##}
+{##}
+{#{% extends "admin/base.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block title %}Add Attendance | Fine-Leap Systems{% endblock %}#}
+{##}
+{#{% block extrastyle %}#}
+{#{% endblock %}#}
+{##}
+{#{% block breadcrumbs %}#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{##}
+{# <div class="jumbotron container text-center" style="background-color: rgba(0, 0, 0, 0.1); padding: 15px">#}
+{##}
+{#     <u><h2>Add Today's Attendance </h2></u>#}
+{##}
+{#    <br>#}
+{##}
+{#    <form method="post" action="{% url "add_attendance" %}" class="form-inline">#}
+{##}
+{#        {% csrf_token %}#}
+{##}
+{#        <div class="text-center" style="margin-left: 30%">#}
+{##}
+{#               <div style="width: 300px;margin: 20px" class="text-center" >#}
+{#                    <label style="float: left"><b>Date : </b></label>#}
+{#            <input onchange="date_verify(value)" id="date" name="date" type="date" style="float: right">#}
+{#                   <span style="display: none; float: right" class="alert alert-danger" id="date_error_msg"></span>#}
+{##}
+{#               </div>#}
+{#        <br><br><br><br>#}
+{##}
+{#            {% for employee in employees %}#}
+{#                <div style="width: 300px;margin: 20px" class="text-center " >#}
+{#                    <label style="float: left"><b>{{ employee.Name }} : </b></label>#}
+{#                    <select name="emp--{{ employee.id }}" style="float: right">#}
+{#                        <option value=1>Full Day</option>#}
+{#                        <option value=0.5>Half Day</option>#}
+{#                        <option value=0>Absent</option>#}
+{#                    </select>#}
+{#                </div>#}
+{#                <br>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    <br><br>#}
+{#        <button class="btn btn-danger" type="reset">Reset</button>#}
+{#        <button class="btn btn-info" type="submit">Submit</button>#}
+{#    </form>#}
+{##}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block extrajs %}#}
+{#    <script>#}
+{#        var json_dates = {{ json_dates | safe }};#}
+{#        function date_verify(entered_date){#}
+{#            if (json_dates.includes(entered_date)){#}
+{#                var date_error_msg = document.getElementById('date_error_msg');#}
+{#                var date_input = document.getElementById("date");#}
+{#                date_error_msg.style.display = '';#}
+{#                date_error_msg.innerHTML = date_input.value + ' Already added. <input type="button" class="btn-danger" value="x" onclick="get_clear();">';#}
+{#                date_input.value = '';#}
+{#            }#}
+{#        }#}
+{#        function  get_clear() {#}
+{#                var date_error_msg = document.getElementById('date_error_msg');#}
+{#                var date_input = document.getElementById("date");#}
+{#                date_error_msg.style.display = 'none';#}
+{##}
+{#        }#}
+{##}
+{#    </script>#}
+{#{% endblock %}#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends "base.html" %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Add Attendance | Fine-Leap Systems</title>#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="jumbotron container text-center">#}
+{##}
+{#    <form method="post" action="{% url "add_attendance" %}">#}
+{##}
+{#        {% csrf_token %}#}
+{##}
+{#        <label >Date</label>#}
+{#        <input name="date" type="date">#}
+{#    <br><br>#}
+{##}
+{#        {% for employee in employees %}#}
+{#            <label>{{ employee.Name }}</label>#}
+{#            <select name="emp--{{ employee.id }}">#}
+{#                <option value=1>Full Day</option>#}
+{#                <option value=0.5>Half Day</option>#}
+{#                <option value=0>Absent</option>#}
+{#            </select>#}
+{#            <br>#}
+{#        {% endfor %}#}
+{#    <br><br>#}
+{#        <button class="btn btn-primary" type="submit">Submit</button>#}
+{#    </form>#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Add Attendance | Fine-Leap Systems{% endblock %}
+
+{% block extrastyle %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+
+ <div class="jumbotron container text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+     <a href="{% url "home" %}" style="float: left"><i class="icon-arrow-left"></i> </a>
+     <h2 style="margin: 0">Add Attendance </h2>
+
+        <hr style="background-color: lightgray;height: 1px">
+
+    <form method="post" action="{% url "add_attendance" %}" class="form-inline">
+        {% csrf_token %}
+
+        <div class="text-center btn btn-success" >
+                <label ><b>Date : </b></label><br>
+                <input required onchange="date_verify(value)" id="date" name="date" type="date" >
+                <span style="display: none" class="alert alert-danger" id="date_error_msg"></span>
+        </div>
+{#        <hr style="background-color: gray;height: 1px">#}
+
+        <div class="jumbotron container-fluid" >
+        {% for employee in employees %}
+            <div style="width:250px;float:left;margin: 10px;" class="text-center btn btn-info">
+                <label ><b>{{ employee.Name }}</b></label><br>
+                <select name="emp--{{ employee.id }}">
+                    <option value=1>Full Day</option>
+                    <option value=0.5>Half Day</option>
+                    <option value=0>Absent</option>
+                </select>
+            </div>
+        {% endfor %}
+        </div>
+        <br>
+
+        <div class="row container-fluid">
+            <button class="btn btn-danger btn-large" type="reset">Reset</button>
+            <button class="btn btn-info btn-large" type="submit">Submit</button>
+        </div>
+
+    </form>
+
+ </div>
+
+
+{% endblock %}
+
+{% block extrajs %}
+    <script>
+        var json_dates = {{ json_dates | safe }};
+        function date_verify(entered_date){
+            if (json_dates.includes(entered_date)){
+                var date_error_msg = document.getElementById('date_error_msg');
+                var date_input = document.getElementById("date");
+                date_error_msg.style.display = '';
+                date_error_msg.innerHTML = date_input.value + ' Already added. <input type="button" class="btn-danger" value="x" onclick="get_clear();">';
+                {#date_error_msg.innerHTML = date_input.value + ' Already added. <button type="button" style="margin:0 !important;" class="close" onclick="get_clear();">x</button>';#}
+                date_input.value = '';
+            }
+        }
+        function  get_clear() {
+                var date_error_msg = document.getElementById('date_error_msg');
+                var date_input = document.getElementById("date");
+                date_error_msg.style.display = 'none';
+
+        }
+
+    </script>
+{% endblock %}

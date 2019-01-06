@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Home | Fine-Leap Systems{% endblock %}
+
+
+{% block extrastyle %}
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+
+{% block content %}
+ <div class="jumbotron container text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+        <h2 class="text-center">Welcome To Fine-Leap Systems</h2>
+        <hr style="background-color: lightgray;height: 1px">
+        <div class="text-center">
+
+            {% if show_add_leave == 1 %}
+                <a href="{% url "add_month_leaves" %}"><button class="btn btn-info" type="submit"><h4><i class="icon-plus icon-white"></i> Add 1.5 Leaves</h4></button></a>
+            {% endif %}
+            <a href="{% url "emp_refresh" %}"><button class="btn btn-info" type="submit"><h4><i class="icon-refresh icon-white"></i> Refresh</h4></button></a>
+
+            <a href="{% url "add_attendance" %}">
+                <button class="btn btn-info" type="submit"><h4><i class="icon-pencil icon-white"></i> Add Today's Attendance</h4></button>
+            </a>
+            <a href="{% url "calendar" %}"><button class="btn btn-info" type="submit"><h4><i class="icon-calendar icon-white"></i> Calendar</h4></button></a>
+        </div>
+<br><br>
+        <div class="alert alert-info" >
+            <span><b>Fine-Leap Leave Tracker : </b> The system to manage employees attendance and leaves.</span>
+        </div>
+
+
+    </div>
+{% endblock %}

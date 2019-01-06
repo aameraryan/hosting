@@ -1,0 +1,92 @@
+{#{% extends "base.html" %}#}
+{#{% load custom_tags %}#}
+{#{% block title %}#}
+{#    <title>{{ month}} | Calendar</title>#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#    <div class="jumbotron text-center container">#}
+{#        <h2>{{ month}}</h2>#}
+{##}
+{#        <table border="2" class="table">#}
+{#            <tr>#}
+{#                <td>Dates</td>#}
+{#                {% for date in dates|dictsort:"My_Date" %}#}
+{#                    <td>{{date.My_Date}}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            {% for employee in employees %}#}
+{#                <tr>#}
+{#                    <td>{{ employee }}</td>#}
+{#                    {% for date in dates %}#}
+{#                        <td>{% get_something employee date %}</td>#}
+{#                    {% endfor %}#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#        </table>#}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
+{##}
+{##}
+{##}
+{##}
+
+
+
+
+
+
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}{{ month }} | Fine-Leap Systems{% endblock %}
+
+{% block extrastyle %}
+
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{#{% block content-left %}#}
+{#{% endblock %}#}
+{#{% block content-center %}#}
+{#{% endblock %}#}
+{#{% block messages %}#}
+{#{% endblock %}#}
+{#{% block header_content %}#}
+{#{% endblock %}#}
+
+
+{% block content %}
+ <div class="jumbotron text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+
+     <a href="{% url "calendar" %}" style="float: left"><i class="icon-arrow-left"></i> </a>
+       <u><h2>{{ month}}</h2></u>
+         <hr style="background-color: lightgray;height: 1px">
+        <table border="2" class="table text-center table-striped table-bordered table-hover">
+            <tr class="info">
+                <td>Emploeyees\Dates</td>
+                {% for date in dates|dictsort:"My_Date" %}
+                    <td>{{date.getting_day}}</td>
+                {% endfor %}
+            </tr>
+            {% for employee in employees %}
+                <tr>
+                    <td>{{ forloop.counter }} - {{ employee }}</td>
+                    {% for date in dates %}
+                        <td>{% get_something employee date %}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+
+

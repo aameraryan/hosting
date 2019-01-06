@@ -1,0 +1,79 @@
+{#{% extends "admin/base.html" %}#}
+{#{% load static %}#}
+{#{% block extrastyle %}#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="{% static "css/materialize.min.css" %}">#}
+{#      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">#}
+{##}
+{#    <style>#}
+{#    #header{#}
+{#        height: 63px !important;#}
+{#        }#}
+{#    .aa-btn{#}
+{#        width: 170px;#}
+{#        height: 75px;#}
+{#        margin: 10px;#}
+{#    }#}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{#{% block breadcrumbs %}#}
+{#{% endblock %}#}
+{##}
+{#{% block portal_content %}#}
+{##}
+{#  #}
+{#{% endblock %}#}
+{##}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Calendar | Fine-Leap Systems{% endblock %}
+
+
+{% block extrastyle %}
+
+    <style>
+
+    #header{
+        height: 63px !important;
+        }
+
+    .aa-btn{
+        {#width: 100px !important;#}
+        height: 45px !important;
+        margin: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+ <div class="jumbotron container text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+     <a href="{% url "home" %}" style="float: left"><i class="icon-arrow-left"></i> </a>
+     <u><h2>All Months</h2></u>
+         <hr style="background-color: lightgray;height: 1px">
+
+
+        {% for month in all_months%}
+            <a href="{% url "month_calendar" month_id=month %}"><button class="btn btn-info aa-btn">{{ month}}</button></a>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

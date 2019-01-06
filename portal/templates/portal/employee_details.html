@@ -1,0 +1,110 @@
+{#{% extends "admin/base.html" %}#}
+{#{% load static %}#}
+{#{% block extrastyle %}#}
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">#}
+{#    <link rel="stylesheet" href="{% static "css/materialize.min.css" %}">#}
+{#      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">#}
+{##}
+{#    <style>#}
+{#    #header{#}
+{#        height: 63px !important;#}
+{#        }#}
+{#    .aa-btn{#}
+{#        width: 170px;#}
+{#        height: 75px;#}
+{#        margin: 10px;#}
+{#    }#}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{#{% block breadcrumbs %}#}
+{#{% endblock %}#}
+{##}
+{#{% block portal_content %}#}
+{##}
+{#  #}
+{#{% endblock %}#}
+{##}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Calendar | Fine-Leap Systems{% endblock %}
+
+
+{% block extrastyle %}
+
+    <style>
+
+    #header{
+        height: 63px !important;
+        }
+
+    .aa-btn{
+        {#width: 100px !important;#}
+        height: 45px !important;
+        margin: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+ <div class="jumbotron container text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+     <a href="{% url "employee_months" employee_id=employee.id %}" style="float: left"><i class="icon-arrow-left"></i> </a>
+     <u><h2>{{ employee.Name }}</h2></u>
+         <hr style="background-color: lightgray;height: 1px">
+
+
+        <table border="2" class="table text-center table-striped table-bordered table-hover">
+            <tr class="info">
+                <td>Name</td>
+                <td>{{ employee.Name}}</td>
+            </tr>
+            <tr>
+                <td>Date Of Joining</td>
+                <td>{{ employee.DOJ}}</td>
+            </tr>
+            <tr>
+                <td>Employment Duration</td>
+                <td>{{ employee.employment_duration}}</td>
+            </tr>
+
+            <tr>
+                <td>Employee ID</td>
+                <td>{{ employee.Employee_ID}}</td>
+            </tr>
+            <tr>
+                <td>Carry Forward Leave Balance</td>
+                <td>{{ employee.CF_LB}}</td>
+            </tr>
+            <tr>
+                <td>Leave Balance</td>
+                <td>{{ employee.Leave_Balance}}</td>
+            </tr>
+            <tr>
+                <td>Total Days</td>
+                <td>{{ employee.total_days}}</td>
+            </tr>
+            <tr>
+                <td>Total Worked Days</td>
+                <td>{{ employee.total_worked_days}}</td>
+            </tr>
+        </table>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{#{% extends "base.html" %}#}
+{#{% load custom_tags %}#}
+{#{% block title %}#}
+{#    <title>{{ month}} | Calendar</title>#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#    <div class="jumbotron text-center container">#}
+{#        <h2>{{ month}}</h2>#}
+{##}
+{#        <table border="2" class="table">#}
+{#            <tr>#}
+{#                <td>Dates</td>#}
+{#                {% for date in dates|dictsort:"My_Date" %}#}
+{#                    <td>{{date.My_Date}}</td>#}
+{#                {% endfor %}#}
+{#            </tr>#}
+{#            {% for employee in employees %}#}
+{#                <tr>#}
+{#                    <td>{{ employee }}</td>#}
+{#                    {% for date in dates %}#}
+{#                        <td>{% get_something employee date %}</td>#}
+{#                    {% endfor %}#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#        </table>#}
+{#    </div>#}
+{#{% endblock %}#}
+{##}
+{##}
+{##}
+{##}
+{##}
+
+
+
+
+
+
+
+
+
+
+{% extends "admin/base.html" %}
+{% load static %}
+{% load custom_tags %}
+
+{% block title %}{{ month }} | {{ employee.Name }} | Fine-Leap Systems{% endblock %}
+
+{% block extrastyle %}
+
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{#{% block content-left %}#}
+{#{% endblock %}#}
+{#{% block content-center %}#}
+{#{% endblock %}#}
+{#{% block messages %}#}
+{#{% endblock %}#}
+{#{% block header_content %}#}
+{#{% endblock %}#}
+
+
+{% block content %}
+ <div class="jumbotron text-center" style="background-color: rgba(255,255,255,0.5); padding: 15px">
+
+     <a href="{% url "employee_months" employee_id=employee.id %}" style="float: left"><i class="icon-arrow-left"></i> </a>
+       <u><h2>{{ month}} | {{ employee.Name  }}</h2></u>
+         <hr style="background-color: lightgray;height: 1px">
+        <table border="2" class="table text-center table-striped table-bordered table-hover">
+            <tr class="info">
+                <td>Dates</td>
+                {% for date in dates|dictsort:"My_Date" %}
+                    <td>{{date.getting_day}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Attendance</td>
+                {% for attendance in attendances %}
+                        <td>{{ attendance.Value.Short_Name }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+
+        <div class="container" style="width: 30% !important;">
+                <table border="2" class="table text-center table-striped table-bordered table-hover">
+
+            <tr class="info"><td colspan="2"><center>Monthly Report</center></td></tr>
+            <tr>
+                <td>Total Working Days</td>
+                <td>{{ working_days }}</td>
+            </tr>
+            <tr class="active">
+                <td>Worked Days</td>
+                <td>{{ work_days }}</td>
+            </tr>
+            <tr>
+                <td>Full Days</td>
+                <td>{{ full_days }}</td>
+            </tr>
+            <tr>
+                <td>Unpaid Half Days</td>
+                <td>{{ unpaid_half_days }}</td>
+            </tr>
+            <tr>
+                <td>Paid Half Days</td>
+                <td>{{ paid_half_days }}</td>
+            </tr>
+            <tr>
+                <td>Unpaid Leaves</td>
+                <td>{{ unpaid_leaves }}</td>
+            </tr>
+            <tr>
+                <td>Paid Leaves</td>
+                <td>{{ paid_leaves }}</td>
+            </tr>
+
+        </table>
+
+        </div>
+
+
+    </div>
+{% endblock %}
